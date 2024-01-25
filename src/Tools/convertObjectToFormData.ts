@@ -4,7 +4,7 @@
  * @returns {formData} a formData object for a multipart encoded API call
  */
 
-const convertObjectToFormData = (object) => {
+const convertObjectToFormData = (object:any) => {
   const formData = new FormData();
 
   for (const key in object) {

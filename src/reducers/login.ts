@@ -5,7 +5,7 @@ export const initialState = {
   user: { logged: false },
 };
 
-const reducer = (state = initialState, action = {}) => {
+const reducer = (state = initialState, action:any = {}) => {
   switch (action.type) {
     case UPDATE_USER:
       delete action.payload.password;

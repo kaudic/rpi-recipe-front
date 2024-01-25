@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import "./RecipeFormModifyBtns.scss";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import Button from "@mui/material/Button";
@@ -35,7 +34,5 @@ const RecipeFormBtns: React.FC<any> = ({
     </div>
   );
 };
-
-RecipeFormBtns.propTypes = {};
 
 export default React.memo(RecipeFormBtns);

@@ -24,7 +24,7 @@ const UnitList: React.FC<any> = ({
         </Tooltip>
       </h1>
       <ul className={unitListClassName}>
-        {units.map((unit) => (
+        {units.map((unit: any) => (
           <UnitForm
             key={unit.id}
             unit={unit}

@@ -14,7 +14,7 @@ import {
 } from "../requests/typesRequests";
 import Swal from "sweetalert2";
 
-const typesMiddleware = (store) => (next) => async (action) => {
+const typesMiddleware =(store: any) => (next: any) => async (action: any) => {
   switch (action.type) {
     case FETCH_TYPES_LIST: {
       const response = await requestFetchTypesList();

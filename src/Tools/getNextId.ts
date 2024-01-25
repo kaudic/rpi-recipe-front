@@ -4,12 +4,12 @@
  * @param {currentId} currentId current id shown
  * @returns {object} it returns an object with previousId key and nextId key
  */
-const getNextId = (arrayOfItems, currentId) => {
+const getNextId = (arrayOfItems:any, currentId:any) => {
   let nextIndex;
   let previousIndex;
 
   const findCurrentIndex = arrayOfItems.findIndex(
-    (item) => parseInt(item.id) === parseInt(currentId),
+    (item:any) => parseInt(item.id) === parseInt(currentId),
   );
   findCurrentIndex + 1 === arrayOfItems.length
     ? (nextIndex = 0)

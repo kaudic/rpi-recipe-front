@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import "./recipeFormCreationBtns.scss";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import Button from "@mui/material/Button";
@@ -14,9 +13,6 @@ const RecipeFormBtns: React.FC<any> = ({ handleCreationClick }) => {
         aria-label="large button group"
         className="Recipe-btnGroup"
       >
-        {/* <Button variant="contained" onClick={handleCancelClick} endIcon={<CancelIcon />}>
-                    Annuler
-                </Button> */}
         <Button
           variant="contained"
           onClick={handleCreationClick}
@@ -28,7 +24,5 @@ const RecipeFormBtns: React.FC<any> = ({ handleCreationClick }) => {
     </div>
   );
 };
-
-RecipeFormBtns.propTypes = {};
 
 export default React.memo(RecipeFormBtns);

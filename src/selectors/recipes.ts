@@ -5,9 +5,9 @@
  * @param {recipeId} recipeId - the id of the recipe we are looking for
  * @return {Object} - the found recipe
  */
-export function findRecipeByPk(recipes, recipeId) {
+export function findRecipeByPk(recipes:any, recipeId:any) {
 
-  const recipe = recipes.find((recipe) => {
+  const recipe = recipes.find((recipe:any) => {
     return parseInt(recipe.id) === parseInt(recipeId);
   });
 
@@ -20,10 +20,10 @@ export function findRecipeByPk(recipes, recipeId) {
  * @param {recipeId} recipeId - the id of the recipe we are looking for
  * @return {Object} - the found recipe
  */
-export function deleteRecipeFromStateRecipes(state, recipeId) {
+export function deleteRecipeFromStateRecipes(state:any, recipeId:any) {
 
   for (const key in state) {
-    const recipeIndex = state[key].findIndex((recipe) => {
+    const recipeIndex = state[key].findIndex((recipe:any) => {
       return parseInt(recipe.id) === parseInt(recipeId);
     });
 
@@ -44,10 +44,10 @@ export function deleteRecipeFromStateRecipes(state, recipeId) {
  * @param {recipe} recipe - the info of the modified recipe
  * @return {Object} - the found recipe
  */
-export function updateRecipeFromStateRecipes(state, modifiedRecipe) {
+export function updateRecipeFromStateRecipes(state:any, modifiedRecipe:any) {
 
   for (const key in state) {
-    const recipeIndex = state[key].findIndex((recipe) => {
+    const recipeIndex = state[key].findIndex((recipe:any) => {
       return parseInt(recipe.id) === parseInt(modifiedRecipe.id);
     });
 
@@ -68,10 +68,10 @@ export function updateRecipeFromStateRecipes(state, modifiedRecipe) {
  * @param {imgData} imgData - the id of the recipe and the image Name
  * @return {state} - the updated state
  */
-export function updateImgNameFromStateRecipes(state, imgData) {
+export function updateImgNameFromStateRecipes(state:any, imgData:any) {
 
   for (const key in state) {
-    const recipeIndex = state[key].findIndex((recipe) => {
+    const recipeIndex = state[key].findIndex((recipe:any) => {
       return parseInt(recipe.id) === parseInt(imgData.recipeId);
     });
 

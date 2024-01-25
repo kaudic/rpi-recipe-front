@@ -5,7 +5,7 @@ export async function requestFetchBasketList() {
     // BASE_URL/api defined by default in apiAxios
     const response = await apiAxios.get("/basket");
     return response;
-  } catch (err) {
+  } catch (err:any) {
     return err.message;
   }
 }
@@ -15,7 +15,7 @@ export async function requestFetchBasketIngredientsList() {
     // BASE_URL/api defined by default in apiAxios
     const response = await apiAxios.get("/basket/ingredients");
     return response;
-  } catch (err) {
+  } catch (err:any) {
     return err.message;
   }
 }
@@ -25,27 +25,27 @@ export async function requestFetchDeleteAllBasket() {
     // BASE_URL/api defined by default in apiAxios
     const response = await apiAxios.delete("/basket");
     return response;
-  } catch (err) {
+  } catch (err:any) {
     return err.message;
   }
 }
 
-export async function requestFetchAddOneBasket(recipeId) {
+export async function requestFetchAddOneBasket(recipeId:any) {
   try {
     // BASE_URL/api defined by default in apiAxios
     const response = await apiAxios.get(`/basket/${recipeId}`);
     return response;
-  } catch (err) {
+  } catch (err:any) {
     return err.message;
   }
 }
 
-export async function requestFetchDeleteOneBasket(recipeId) {
+export async function requestFetchDeleteOneBasket(recipeId:any) {
   try {
     // BASE_URL/api defined by default in apiAxios
     const response = await apiAxios.delete(`/basket/${recipeId}`);
     return response;
-  } catch (err) {
+  } catch (err:any) {
     return err.message;
   }
 }

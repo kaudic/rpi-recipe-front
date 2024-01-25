@@ -4,7 +4,7 @@
  * @returns {array} array array shuffled randomly
  */
 
-const shuffleArray = (array) => {
+const shuffleArray = (array:any) => {
   let currentIndex = array.length;
   let randomIndex;
 

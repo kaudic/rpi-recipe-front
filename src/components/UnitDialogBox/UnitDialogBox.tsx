@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import "./unitDialogBox.scss";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
@@ -54,7 +53,5 @@ const UnitDialogBox: React.FC<any> = ({
     </Dialog>
   );
 };
-
-UnitDialogBox.propTypes = {};
 
 export default React.memo(UnitDialogBox);

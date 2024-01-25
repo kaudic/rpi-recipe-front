@@ -22,7 +22,7 @@ import {
 import convertObjectToFormData from "../Tools/convertObjectToFormData";
 import Swal from "sweetalert2";
 
-const recipesMiddleware = (store) => (next) => async (action) => {
+const recipesMiddleware = (store: any) => (next: any) => async (action: any) => {
   switch (action.type) {
     case FETCH_RECIPES_LIST: {
       const response = await requestFetchRecipesList();

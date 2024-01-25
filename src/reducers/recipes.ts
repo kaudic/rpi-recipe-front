@@ -17,7 +17,7 @@ export const initialState = {
   list: [],
 };
 
-const reducer = (state = initialState, action = {}) => {
+const reducer = (state = initialState, action:any = {}) => {
   switch (action.type) {
     case SET_RECIPES_LIST:
       return {

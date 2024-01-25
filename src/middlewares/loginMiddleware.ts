@@ -7,7 +7,7 @@ import {
   getLocalBearerToken,
 } from "../requests";
 
-const loginMiddleware = (store) => (next) => async (action) => {
+const loginMiddleware = (store: any) => (next: any) => async (action: any) => {
   switch (action.type) {
     case LOG_IN: {
       const response = await requestFetchLogin(action.payload);

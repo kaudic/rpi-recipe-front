@@ -14,7 +14,7 @@ import {
 } from "../requests/unitsRequests";
 import Swal from "sweetalert2";
 
-const unitsMiddleware = (store) => (next) => async (action) => {
+const unitsMiddleware = (store: any) => (next: any) => async (action: any) => {
   switch (action.type) {
     case FETCH_UNITS_LIST: {
       const response = await requestFetchUnitsList();

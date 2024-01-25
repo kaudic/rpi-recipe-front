@@ -14,7 +14,7 @@ export default apiAxios;
  * Set le header Authorization avec le token donné
  * @param {String} token
  */
-export function setBearerToken(token) {
+export function setBearerToken(token:any) {
   //  set le header Authorization avec le token
   apiAxios.defaults.headers.common.Authorization = `bearer ${token}`;
   // localStorage.setItem('token', token);

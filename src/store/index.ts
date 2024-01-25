@@ -8,7 +8,7 @@ import ingredientsMiddleware from "../middlewares/ingredientsMiddleware";
 import basketMiddleware from "../middlewares/basketMiddleware";
 import loginMiddleware from "../middlewares/loginMiddleware";
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const composeEnhancers =( (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ) || compose;
 
 const enhancers = composeEnhancers(
   applyMiddleware(

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
 import "./unitForm.scss";
 import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
@@ -16,27 +15,27 @@ const UnitForm: React.FC<any> = ({
   const [shortName, setShortName] = useState(unit.short_name);
 
   // function to handle the name of a unit in a state
-  const handleOnChangeName = (event) => {
+  const handleOnChangeName = (event: any) => {
     setName(event.target.value);
   };
 
   // function to handle the update of a unit SHORT name after leaving the field
-  const handleOnBlurShortName = (event) => {
+  const handleOnBlurShortName = (event: any) => {
     updateUnitChange(unit.id, name, shortName);
   };
 
   // function to handle the SHORT name of a unit in a state
-  const handleOnChangeShortName = (event) => {
+  const handleOnChangeShortName = (event: any) => {
     setShortName(event.target.value);
   };
 
   // function to handle the update of a unit name after leaving the field
-  const handleOnBlurName = (event) => {
+  const handleOnBlurName = (event: any) => {
     updateUnitChange(unit.id, name, shortName);
   };
 
   // function to delete an ingredient
-  const handleClickDelete = (event) => {
+  const handleClickDelete = (event: any) => {
     deleteUnit(unit.id);
   };
 
@@ -62,7 +61,5 @@ const UnitForm: React.FC<any> = ({
     </ListItem>
   );
 };
-
-UnitForm.propTypes = {};
 
 export default React.memo(UnitForm);

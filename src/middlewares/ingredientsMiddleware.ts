@@ -14,7 +14,7 @@ import {
 } from "../requests/ingredientsRequests";
 import Swal from "sweetalert2";
 
-const ingredientsMiddleware = (store) => (next) => async (action) => {
+const ingredientsMiddleware = (store: any) => (next: any) => async (action: any) => {
   switch (action.type) {
     case FETCH_INGREDIENTS_LIST: {
       const response = await requestFetchIngredientsList();

@@ -16,7 +16,7 @@ import {
 import { actionFetchRecipesList } from "../actions/recipes";
 import Swal from "sweetalert2";
 
-const basketMiddleware = (store) => (next) => async (action) => {
+const basketMiddleware = (store: any) => (next: any) => async (action: any) => {
   switch (action.type) {
     case FETCH_BASKET_LIST: {
       const response = await requestFetchBasketList();
