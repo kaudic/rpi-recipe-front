@@ -1,0 +1,80 @@
+{
+
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true // Add this line
+  },
+  "globals": {
+    "JSX": true
+  },
+  "extends": [
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
+    "plugin:github/recommended",
+    "plugin:eslint-plugin-import/recommended",
+    "plugin:import/typescript"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react",
+    "@typescript-eslint",
+    "@typescript-eslint/eslint-plugin",
+    "const-case",
+    "github",
+    "json-format",
+    "promise"
+  ],
+  "settings": {
+    "import/extensions": [".js", ".jsx", ".ts", ".tsx"],
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx", ".d.ts"]
+      }
+    }
+  },
+  "rules": {
+    "import/prefer-default-export": "off",
+    "react/require-default-props": 0,
+    "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
+    "react/function-component-definition": [
+      2,
+      {
+        "namedComponents": "arrow-function",
+        "unnamedComponents": "arrow-function"
+      }
+    ],
+    "no-unused-vars": ["error", { "args": "none" }],
+    "no-param-reassign": ["error", { "props": true, "ignorePropertyModificationsFor": ["state", "acc"] }],
+    "no-underscore-dangle": ["error", { "allow": ["_id"] }],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    "react/jsx-max-props-per-line": ["error", { "maximum": 1, "when": "multiline" }],
+    "react/jsx-props-no-spreading": "off",
+    "max-len": ["error", { "code": 120 }],
+    "i18n-text/no-en": "off", // no english allowed in strings
+    "eslint-comments/no-use": "off", // to be activated
+    // "@typescript-eslint/no-explicit-any":"off" // to be activated
+    "promise/prefer-await-to-then": "off"
+    
+  }
+}
