@@ -74,7 +74,14 @@
     "i18n-text/no-en": "off", // no english allowed in strings
     "eslint-comments/no-use": "off", // to be activated
     // "@typescript-eslint/no-explicit-any":"off" // to be activated
-    "promise/prefer-await-to-then": "off"
+    "promise/prefer-await-to-then": "off",
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "selector": "file",
+        "format": ["PascalCase"]
+      }
+    ]
     
   }
 }

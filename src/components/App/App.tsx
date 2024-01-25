@@ -6,11 +6,14 @@ import FormsCtn from "../../components/Forms/FormsCtn";
 import BasketCtn from "../../components/Basket/BasketCtn";
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { actionFetchRecipesList } from "../actions/recipes";
-import { actionFetchUnitsList } from "../actions/units";
-import { actionFetchTypesList } from "../actions/types";
-import { actionFetchIngredientsList } from "../actions/ingredients";
-import { actionFetchBasketList, actionSetBasketList } from "../actions/basket";
+import { actionFetchRecipesList } from "../../actions/recipes";
+import { actionFetchUnitsList } from "../../actions/units";
+import { actionFetchTypesList } from "../../actions/types";
+import { actionFetchIngredientsList } from "../../actions/ingredients";
+import {
+  actionFetchBasketList,
+  actionSetBasketList,
+} from "../../actions/basket";
 
 import "./App.scss";
 
