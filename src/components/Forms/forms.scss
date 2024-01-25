@@ -1,0 +1,38 @@
+.forms {
+    display: flex;
+
+    &-ingredient {
+        margin-left: 20px;
+    }
+
+    &-unit {
+        margin-left: 20px;
+    }
+
+    &-ingredientList {
+        width: 80vw;
+        height: 60vh;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        overflow: auto;
+
+        &-ingredientForm {
+            width: 500px !important;
+        }
+    }
+
+    &-unitList {
+        width: 80vw;
+        height: 60vh;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        overflow: auto;
+
+        &-unitForm {
+            width: 500px !important;
+        }
+    }
+
+}
