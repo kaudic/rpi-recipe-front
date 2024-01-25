@@ -7,7 +7,7 @@ import {
   actionFetchDeleteAllBasket,
 } from "../actions/basket";
 
-const BasketCtn = () => {
+const BasketCtn: React.FC<any> = () => {
   const dispatch = useDispatch();
 
   // Get indicators counts

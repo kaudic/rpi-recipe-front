@@ -15,7 +15,7 @@ import buildAutocompleteOptions from "../../Tools/buildAutocompleteOptions";
 
 import PropTypes from "prop-types";
 
-const IngredientDialogBox = ({
+const IngredientDialogBox: React.FC<any> = ({
   title,
   subtitle,
   ingregientDialBoxOpen,

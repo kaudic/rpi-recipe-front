@@ -1,12 +1,12 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import IngredientForm from '../IngredientForm/IngredientForm';
-import Tooltip from '@mui/material/Tooltip';
-import { IconButton } from '@mui/material';
-import AddCircleIcon from '@mui/icons-material/AddCircle';
-import './ingredientList.scss';
+import React from "react";
+import PropTypes from "prop-types";
+import IngredientForm from "../IngredientForm/IngredientForm";
+import Tooltip from "@mui/material/Tooltip";
+import { IconButton } from "@mui/material";
+import AddCircleIcon from "@mui/icons-material/AddCircle";
+import "./ingredientList.scss";
 
-const IngredientList = ({
+const IngredientList: React.FC<any> = ({
   handleIngredientDialBoxClickOpen,
   ingredients,
   units,
@@ -16,12 +16,12 @@ const IngredientList = ({
   showQty,
   enableIngredientName,
   ingredientListClassName,
-  ingredientFormClassName
+  ingredientFormClassName,
 }) => {
-
   return (
     <>
-      <h1 className="recipeForm-title">Liste des ingrédients
+      <h1 className="recipeForm-title">
+        Liste des ingrédients
         <Tooltip title="Ajouter Ingrédient">
           <IconButton onClick={handleIngredientDialBoxClickOpen}>
             <AddCircleIcon color="success" />
@@ -29,32 +29,32 @@ const IngredientList = ({
         </Tooltip>
       </h1>
       <ul className={ingredientListClassName}>
-        {ingredients.map((ingredient) => <IngredientForm
-          key={ingredient.id}
-          ingredient={ingredient}
-          units={units}
-          updateIngredientsQtyChange={updateIngredientsQtyChange}
-          updateIngredientsUnitChange={updateIngredientsUnitChange}
-          deleteIngredient={deleteIngredient}
-          ingredientFormClassName={ingredientFormClassName}
-          showQty={showQty}
-          enableIngredientName={enableIngredientName} />)}
+        {ingredients.map((ingredient) => (
+          <IngredientForm
+            key={ingredient.id}
+            ingredient={ingredient}
+            units={units}
+            updateIngredientsQtyChange={updateIngredientsQtyChange}
+            updateIngredientsUnitChange={updateIngredientsUnitChange}
+            deleteIngredient={deleteIngredient}
+            ingredientFormClassName={ingredientFormClassName}
+            showQty={showQty}
+            enableIngredientName={enableIngredientName}
+          />
+        ))}
       </ul>
     </>
+  );
+};
 
-  )
-}
-
-IngredientList.propTypes = {
-
-}
+IngredientList.propTypes = {};
 
 IngredientList.defaultProps = {
   showQty: true,
-  ingredientListClassName: '',
-  ingredientFormClassName: '',
+  ingredientListClassName: "",
+  ingredientFormClassName: "",
   enableIngredientName: false,
-  ingredients: []
-}
+  ingredients: [],
+};
 
 export default React.memo(IngredientList);

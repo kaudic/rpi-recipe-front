@@ -1,26 +1,20 @@
-import PropTypes from 'prop-types';
-import React from 'react';
-import CardCtn from '../../containers/CardCtn';
-import './cards.scss';
+import PropTypes from "prop-types";
+import React from "react";
+import CardCtn from "../../containers/CardCtn";
+import "./cards.scss";
 
-const Cards = ({ recipes }) => {
-
+const Cards: React.FC<any> = ({ recipes }) => {
   return (
     <section className="cards">
       {recipes && (
         <div className="cards-list">
           {recipes.map((recipe) => {
-            return (
-              <CardCtn
-                key={recipe.id}
-                {...recipe}
-              />
-            );
+            return <CardCtn key={recipe.id} {...recipe} />;
           })}
         </div>
       )}
     </section>
-  )
+  );
 };
 
 Cards.propTypes = {
@@ -43,9 +37,9 @@ Cards.propTypes = {
         seconds: PropTypes.number,
       }).isRequired,
       type_id: PropTypes.number.isRequired,
-      name: PropTypes.string
+      name: PropTypes.string,
     }),
-  )
+  ),
 };
 
 Cards.defaultProps = {
