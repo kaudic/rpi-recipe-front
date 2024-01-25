@@ -1,8 +1,7 @@
 import React from "react";
 import Card from "./Card";
 import { useDispatch } from "react-redux";
-import { actionFetchAddOneBasket } from "../actions/basket";
-import PropTypes from "prop-types";
+import { actionFetchAddOneBasket } from "../../actions/basket";
 
 const CardCtn: React.FC<any> = ({
   id,
@@ -35,23 +34,6 @@ const CardCtn: React.FC<any> = ({
       handleAddToCartClick={handleAddToCartClick}
     />
   );
-};
-
-CardCtn.propTypes = {
-  id: PropTypes.number.isRequired,
-  title: PropTypes.string.isRequired,
-  reference: PropTypes.string.isRequired,
-  img_name: PropTypes.string.isRequired,
-  meal_qty: PropTypes.number.isRequired,
-  cooking_time: PropTypes.shape({
-    hours: PropTypes.number,
-    minutes: PropTypes.number,
-  }).isRequired,
-  preparation_time: PropTypes.shape({
-    hours: PropTypes.number,
-    minutes: PropTypes.number,
-  }).isRequired,
-  type_name: PropTypes.string.isRequired,
 };
 
 export default React.memo(CardCtn);

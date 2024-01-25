@@ -10,18 +10,18 @@ const Login: React.FC<any> = ({ user }) => {
 
   const [credentials, setCredentials] = useState();
 
-  const handleInputChange = (event) => {
+  const handleInputChange = (event: any) => {
     setCredentials((state) => {
-      return { ...state, [event.target.name]: event.target.value };
+      return { ...(state as any), [event.target.name]: event.target.value };
     });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: any) => {
     event.preventDefault();
     dispatch(actionFetchLogin(credentials));
   };
 
-  const handleLogOut = (event) => {
+  const handleLogOut = (event: any) => {
     event.preventDefault();
     dispatch(actionLogout());
   };
@@ -32,7 +32,6 @@ const Login: React.FC<any> = ({ user }) => {
         <form className="login-form">
           <div className="login-login">{user.login}</div>
           <Button
-            size="md"
             variant="contained"
             color="info"
             className="login-btn"
@@ -58,7 +57,6 @@ const Login: React.FC<any> = ({ user }) => {
             onChange={handleInputChange}
           />
           <Button
-            size="md"
             variant="contained"
             color="warning"
             className="login-btn"

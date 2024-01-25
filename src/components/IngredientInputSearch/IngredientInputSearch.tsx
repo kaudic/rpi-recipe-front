@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import SearchIcon from "@mui/icons-material/Search";
 import { styled, alpha } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
@@ -59,7 +58,5 @@ const IngredientInputSearch: React.FC<any> = ({ handleSearchOnChange }) => {
     </Search>
   );
 };
-
-IngredientInputSearch.propTypes = {};
 
 export default React.memo(IngredientInputSearch);

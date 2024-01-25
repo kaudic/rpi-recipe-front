@@ -37,7 +37,7 @@ const FormsIngredients: React.FC<any> = ({ units, ingredients }) => {
     setIngregientDialBoxOpen(false);
     const newIngredient = {
       name,
-      mainUnitId: unitValue.id,
+      mainUnitId: (unitValue as any)?.id,
     };
     // API call to create a new ingredient
     dispatch(actionFetchCreateIngredient(newIngredient));
@@ -52,12 +52,12 @@ const FormsIngredients: React.FC<any> = ({ units, ingredients }) => {
   };
 
   // function for dialog box to get the default unit id from chosen ingredient and pass it to the unit autocomplete
-  const handleChangeName = (event) => {
+  const handleChangeName = (event: any) => {
     setName(event.target.value);
   };
 
   // function for dialog box to handle change of unit
-  const handleChangeOfUnit = (event, value) => {
+  const handleChangeOfUnit = (event: any, value: any) => {
     setUnitValue(value);
   };
 
@@ -67,18 +67,18 @@ const FormsIngredients: React.FC<any> = ({ units, ingredients }) => {
   };
 
   // function to filter the ingredients on screen
-  const handleIngredientsSearchOnChange = (event) => {
+  const handleIngredientsSearchOnChange = (event: any) => {
     setSearchIngredientsString(event.target.value);
   };
 
   // function for ingredient management Tab - update ingredient default unit
-  const updateIngredientsUnitChange = (id, mainUnitId, name) => {
+  const updateIngredientsUnitChange = (id: any, mainUnitId: any, name: any) => {
     const updatedIngredient = { id, ingredient: { name, mainUnitId } };
     dispatch(actionFetchPutIngredient(updatedIngredient));
   };
 
   // function for ingredient management Tab - delete ingredient from list
-  const deleteIngredient = (ingredientId) => {
+  const deleteIngredient = (ingredientId: any) => {
     dispatch(actionFetchDeleteIngredient(ingredientId));
   };
 

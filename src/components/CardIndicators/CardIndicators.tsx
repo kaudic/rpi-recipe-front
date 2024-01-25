@@ -3,7 +3,6 @@ import RestaurantIcon from "@mui/icons-material/Restaurant";
 import MicrowaveIcon from "@mui/icons-material/Microwave";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import IconButton from "@mui/material/IconButton";
-import PropTypes from "prop-types";
 import "./cardIndicators.scss";
 
 const CardIndicators: React.FC<any> = ({
@@ -14,7 +13,7 @@ const CardIndicators: React.FC<any> = ({
 }) => {
   return (
     <div className={`cardIndicator ${className}`}>
-      <IconButton aria-label="Nb Repas" color="info" fontSize="small">
+     <IconButton aria-label="Nb Repas" color="primary">
         <RestaurantIcon />
         {qtyMeal}
       </IconButton>
@@ -30,19 +29,6 @@ const CardIndicators: React.FC<any> = ({
       </IconButton>
     </div>
   );
-};
-
-CardIndicators.propTypes = {
-  qtyMeal: PropTypes.number.isRequired,
-  preparationTime: PropTypes.shape({
-    hours: PropTypes.number,
-    minutes: PropTypes.number,
-  }).isRequired,
-  cookingTime: PropTypes.shape({
-    hours: PropTypes.number,
-    minutes: PropTypes.number,
-  }).isRequired,
-  className: PropTypes.string,
 };
 
 export default React.memo(CardIndicators);

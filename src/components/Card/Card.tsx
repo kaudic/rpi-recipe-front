@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import CardIndicators from "../CardIndicators/CardIndicators";
 import "./card.scss";
@@ -65,22 +64,6 @@ const Card: React.FC<any> = ({
       </div>
     </article>
   );
-};
-
-Card.propTypes = {
-  id: PropTypes.number.isRequired,
-  title: PropTypes.string.isRequired,
-  reference: PropTypes.string.isRequired,
-  img_name: PropTypes.string.isRequired,
-  meal_qty: PropTypes.number.isRequired,
-  cooking_time: PropTypes.shape({
-    minutes: PropTypes.number,
-  }).isRequired,
-  preparation_time: PropTypes.shape({
-    minutes: PropTypes.number,
-  }).isRequired,
-  type_name: PropTypes.string.isRequired,
-  handleAddToCartClick: PropTypes.func,
 };
 
 export default React.memo(Card);

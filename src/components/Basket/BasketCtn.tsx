@@ -5,25 +5,25 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   actionFetchDeleteOneBasket,
   actionFetchDeleteAllBasket,
-} from "../actions/basket";
+} from "../../actions/basket";
 
-const BasketCtn: React.FC<any> = () => {
+const BasketCtn: React.FC = () => {
   const dispatch = useDispatch();
 
   // Get indicators counts
   const recipesCount = useSelector(
-    (state) => state?.basket?.list?.recipesCount[0]?.count || 0,
+    (state) => (state as any)?.basket?.list?.recipesCount[0]?.count || 0,
   );
   const mealsCount = useSelector(
-    (state) => state?.basket?.list?.mealsCount[0]?.sum || 0,
+    (state) => (state as any)?.basket?.list?.mealsCount[0]?.sum || 0,
   );
 
   // Get all recipes in the basket
-  const recipesBasketList = useSelector((state) => state.basket.list);
+  const recipesBasketList = useSelector((state) => (state as any).basket.list);
   const recipes = recipesBasketList.recipes;
 
   // Function to dispatch an action to delete recipe from the basket
-  const handleDispatchDeleteOneBasket = (recipeId) => {
+  const handleDispatchDeleteOneBasket = (recipeId: any) => {
     dispatch(actionFetchDeleteOneBasket(recipeId));
   };
 

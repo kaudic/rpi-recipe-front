@@ -66,7 +66,7 @@ const checkBoxStyle = {
   },
 };
 
-const Menu = ({
+const Menu: React.FC<any> = ({
   handleSearchOnChange,
   updateTypeFilter,
   recipeCount,
@@ -75,7 +75,7 @@ const Menu = ({
 }) => {
   const url = window.location.pathname;
 
-  const handleCheckboxClick = (event) => {
+  const handleCheckboxClick = (event: any) => {
     updateTypeFilter(event.target.value);
   };
 
@@ -176,15 +176,6 @@ const Menu = ({
   );
 };
 
-Menu.propTypes = {
-  handleSearchOnChange: PropTypes.func,
-  updateTypeFilter: PropTypes.func,
-  recipeCount: PropTypes.number,
-  handleShuffleClick: PropTypes.func,
-};
 
-Menu.defaultProps = {
-  // recipeCount: 0
-};
 
 export default React.memo(Menu);

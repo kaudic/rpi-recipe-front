@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import IngredientForm from "../IngredientForm/IngredientForm";
 import Tooltip from "@mui/material/Tooltip";
 import { IconButton } from "@mui/material";
@@ -29,7 +28,7 @@ const IngredientList: React.FC<any> = ({
         </Tooltip>
       </h1>
       <ul className={ingredientListClassName}>
-        {ingredients.map((ingredient) => (
+        {ingredients.map((ingredient: any) => (
           <IngredientForm
             key={ingredient.id}
             ingredient={ingredient}
@@ -47,14 +46,5 @@ const IngredientList: React.FC<any> = ({
   );
 };
 
-IngredientList.propTypes = {};
-
-IngredientList.defaultProps = {
-  showQty: true,
-  ingredientListClassName: "",
-  ingredientFormClassName: "",
-  enableIngredientName: false,
-  ingredients: [],
-};
 
 export default React.memo(IngredientList);

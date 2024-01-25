@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
 import "./formsUnits.scss";
 import { TextField } from "@mui/material";
@@ -23,20 +22,20 @@ const FormsUnits: React.FC<any> = ({ units }) => {
   const [searchUnits, setSearchUnits] = useState();
 
   // function to change short name of unit
-  const handleChangeUnitShortName = (event) => {
+  const handleChangeUnitShortName = (event: any) => {
     setUnitShortNameInputValue(event.target.value);
   };
 
   // function to change name of unit
-  const handleChangeUnitName = (event) => {
+  const handleChangeUnitName = (event: any) => {
     setUnitNameInputValue(event.target.value);
   };
 
   // function for unit management Tab - update unit name and short name
   const updateUnitChange = (
-    id,
-    unitNameInputValue,
-    unitShortNameInputValue,
+    id: any,
+    unitNameInputValue: any,
+    unitShortNameInputValue: any,
   ) => {
     const updatedUnit = {
       id,
@@ -72,11 +71,11 @@ const FormsUnits: React.FC<any> = ({ units }) => {
     cancelUnitDialogBoxState();
   };
   // function to filter the units on screen
-  const handleUnitsSearchOnChange = (event) => {
+  const handleUnitsSearchOnChange = (event: any) => {
     setSearchUnitsString(event.target.value);
   };
   // function for unit management Tab - delete unit from list
-  const deleteUnit = (unitId) => {
+  const deleteUnit = (unitId: any) => {
     dispatch(actionFetchDeleteUnit(unitId));
   };
 
@@ -119,7 +118,5 @@ const FormsUnits: React.FC<any> = ({ units }) => {
     </div>
   );
 };
-
-FormsUnits.propTypes = {};
 
 export default FormsUnits;

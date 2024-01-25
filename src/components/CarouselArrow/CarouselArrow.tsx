@@ -18,7 +18,7 @@ const CarouselArrow: React.FC<any> = ({ direction, recipes }) => {
   const { nextId, previousId } = getNextId(recipes, recipeId);
 
   // function to handle the click on an arrow, left or right
-  const handleArrowClick = (event) => {
+  const handleArrowClick = (event: any) => {
     switch (direction) {
       case "left":
         return navigate(`/recipe/${previousId}`);
@@ -48,28 +48,6 @@ const CarouselArrow: React.FC<any> = ({ direction, recipes }) => {
   );
 };
 
-CarouselArrow.propTypes = {
-  direction: PropTypes.string.isRequired,
-  recipes: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      title: PropTypes.string.isRequired,
-      reference: PropTypes.string.isRequired,
-      img_name: PropTypes.string.isRequired,
-      text: PropTypes.string.isRequired,
-      meal_qty: PropTypes.number.isRequired,
-      cooking_time: PropTypes.shape({
-        hours: PropTypes.number,
-        minutes: PropTypes.number,
-      }).isRequired,
-      preparation_time: PropTypes.shape({
-        hours: PropTypes.number,
-        minutes: PropTypes.number,
-      }).isRequired,
-      type_id: PropTypes.number.isRequired,
-      basket: PropTypes.bool.isRequired,
-    }),
-  ).isRequired,
-};
+
 
 export default React.memo(CarouselArrow);

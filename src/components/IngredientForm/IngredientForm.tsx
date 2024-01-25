@@ -3,7 +3,6 @@ import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { IconButton, TextField } from "@mui/material";
-import PropTypes from "prop-types";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 
@@ -24,29 +23,29 @@ const IngredientForm: React.FC<any> = ({
   const [name, setName] = useState(ingredient.name);
 
   // function to handle qty change
-  const handleOnChangeQty = (event) => {
+  const handleOnChangeQty = (event: any) => {
     setQty(event.target.value);
     updateIngredientsQtyChange(ingredient.id, event.target.value);
   };
 
   // function to handle the change if an ingredient's name
-  const handleOnChangeName = (event) => {
+  const handleOnChangeName = (event: any) => {
     setName(event.target.value);
   };
 
   // function to handle the update an ingredient name after leaving the field
-  const handleOnBlurName = (event) => {
+  const handleOnBlurName = (event: any) => {
     updateIngredientsUnitChange(ingredient.id, ingredient.main_unit_id, name);
   };
 
   // function to handle a unit change
-  const handleSelectUnitChange = (event) => {
+  const handleSelectUnitChange = (event: any) => {
     setUnit(event.target.value);
     updateIngredientsUnitChange(ingredient.id, event.target.value, name);
   };
 
   // function to delete an ingredient
-  const handleClickDelete = (event) => {
+  const handleClickDelete = (event: any) => {
     deleteIngredient(ingredient.id);
   };
 
@@ -67,7 +66,7 @@ const IngredientForm: React.FC<any> = ({
         value={unit}
         onChange={handleSelectUnitChange}
       >
-        {units.map((unit) => (
+        {units.map((unit: any) => (
           <MenuItem key={unit.id} value={parseInt(unit.id)}>
             {unit.name}
           </MenuItem>
@@ -88,12 +87,6 @@ const IngredientForm: React.FC<any> = ({
       </ListItemIcon>
     </ListItem>
   );
-};
-
-IngredientForm.propTypes = {};
-
-IngredientForm.defaultProps = {
-  ingredientListClassName: "",
 };
 
 export default React.memo(IngredientForm);

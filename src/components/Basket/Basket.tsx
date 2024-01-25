@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./basket.scss";
-import MenuCtn from "../../containers/MenuCtn";
+import MenuCtn from "../Menu/MenuCtn";
 import "react-tabulator/lib/styles.css";
 import { ReactTabulator } from "react-tabulator";
 import TextField from "@mui/material/TextField";
@@ -32,15 +32,15 @@ const Basket: React.FC<any> = ({
     setIngredients(list.data);
   };
   // Function to format Recipe title
-  const recipeTitleFormatter = (cell) => {
+  const recipeTitleFormatter = (cell: any) => {
     return `<p class="basket-table-cell--recipe">${cell.getValue()}</p>`;
   };
   // Function to format Figures
-  const figuresFormatter = (cell) => {
+  const figuresFormatter = (cell: any) => {
     return `<p class="basket-table-cell--figures">${cell.getValue()}</p>`;
   };
   // Function to format image
-  const imageFormatter = (cell) => {
+  const imageFormatter = (cell: any) => {
     const baseUrl =
       process.env.NODE_ENV === "production"
         ? process.env.REACT_APP_BASE_URL_PROD
@@ -48,12 +48,12 @@ const Basket: React.FC<any> = ({
     return `<img class="basket-img" src=${baseUrl}/images/${cell.getValue()}>`;
   };
   // Function to delete a recipe from the basket
-  const deleteFromBasket = (e, cell) => {
+  const deleteFromBasket = (e: any, cell: any) => {
     const recipeId = cell.getData().id;
     handleDispatchDeleteOneBasket(recipeId);
   };
   // Function to format the time of cooking and preparation
-  const timeFormatter = (cell) => {
+  const timeFormatter = (cell: any) => {
     if (cell.getValue().hours) {
       return `<p class="basket-table-cell--figures">
             ${cell.getValue().hours}h${cell.getValue().minutes ? `${cell.getValue().minutes}mn` : "00"}
@@ -151,7 +151,7 @@ const Basket: React.FC<any> = ({
 
   return (
     <div>
-      <MenuCtn />
+      <MenuCtn  />
       <BasketBtns
         handleToggleIngredientsClick={handleToggleIngredientsClick}
         showIngredients={showIngredients}
@@ -171,13 +171,13 @@ const Basket: React.FC<any> = ({
         {recipesCount > 0 && !showIngredients && (
           <ReactTabulator
             data={recipes}
-            columns={recipesColumns}
+            columns={recipesColumns as any}
             layout={"fitColumns"}
           />
         )}
         {recipesCount > 0 && showIngredients && (
           <div className="basket-ingredients-table">
-            <ReactTabulator data={ingredients} columns={ingredientsColumns} />
+            <ReactTabulator data={ingredients} columns={ingredientsColumns as any} />
           </div>
         )}
       </div>
@@ -191,41 +191,5 @@ const Basket: React.FC<any> = ({
   );
 };
 
-BasketBtns.propTypes = {
-  recipesCount: PropTypes.shape({
-    count: PropTypes.number.isRequired,
-  }).isRequired,
-  mealsCount: PropTypes.shape({
-    sum: PropTypes.number.isRequired,
-  }).isRequired,
-  recipes: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      title: PropTypes.string.isRequired,
-      reference: PropTypes.string.isRequired,
-      img_name: PropTypes.string.isRequired,
-      text: PropTypes.string.isRequired,
-      meal_qty: PropTypes.number.isRequired,
-      cooking_time: PropTypes.shape({
-        hours: PropTypes.number,
-        minutes: PropTypes.number,
-      }).isRequired,
-      preparation_time: PropTypes.shape({
-        hours: PropTypes.number,
-        minutes: PropTypes.number,
-      }).isRequired,
-      type_id: PropTypes.number.isRequired,
-      basket: PropTypes.bool.isRequired,
-    }),
-  ).isRequired,
-  handleDispatchDeleteOneBasket: PropTypes.func, //isRequired not working ?
-  handleDeleteBasketClick: PropTypes.func,
-};
-
-BasketBtns.defaultProps = {
-  recipesCount: { count: 0 },
-  mealsCount: { sum: 0 },
-  recipes: [],
-};
 
 export default React.memo(Basket);

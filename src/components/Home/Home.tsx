@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import PropTypes from "prop-types";
 import Cards from "../Cards/Cards";
-import MenuCtn from "../../containers/MenuCtn";
+import MenuCtn from "../Menu/MenuCtn";
 import Page from "../Page/Page";
 
 const Home: React.FC<any> = ({
@@ -16,7 +15,7 @@ const Home: React.FC<any> = ({
   const [typeFilter, setTypeFilter] = useState([1, 2, 3]);
 
   // function to update the state typeFilter
-  const updateTypeFilter = (typeId) => {
+  const updateTypeFilter = (typeId: any) => {
     const oldTypeFilterState = typeFilter;
 
     if (oldTypeFilterState.includes(parseInt(typeId))) {
@@ -33,7 +32,7 @@ const Home: React.FC<any> = ({
   useEffect(() => {
     // in case there is no search string then we decide to start from all recipes in the search list and then apply the checkBox filter
     if (searchString === "") {
-      const filteredRecipesFromCheckbox = recipes.filter((recipe) => {
+      const filteredRecipesFromCheckbox = recipes.filter((recipe: any) => {
         return typeFilter.includes(parseInt(recipe.type_id));
       });
       handleSetSearchList(filteredRecipesFromCheckbox);
@@ -41,7 +40,7 @@ const Home: React.FC<any> = ({
     }
 
     // in case we have a search string then we update the searchList from the store
-    const searchRecipes = recipes.filter((recipe) => {
+    const searchRecipes = recipes.filter((recipe: any) => {
       return (
         (recipe.title.toLowerCase().includes(searchString.toLowerCase()) ||
           recipe.reference.toLowerCase().includes(searchString.toLowerCase()) ||
@@ -49,7 +48,7 @@ const Home: React.FC<any> = ({
           // look for the searchString in the ingredients
           (() => {
             let isRecipe = false;
-            recipe.ingredients.forEach((ingredient) => {
+            recipe.ingredients.forEach((ingredient: any) => {
               if (ingredient.name) {
                 if (
                   ingredient.name
@@ -71,7 +70,7 @@ const Home: React.FC<any> = ({
   }, [searchString, recipes, typeFilter]);
 
   // function to filter the recipes by looking for a searchString
-  const handleSearchOnChange = (event) => {
+  const handleSearchOnChange = (event: any) => {
     setSearchString(event.target.value);
   };
 
@@ -86,53 +85,5 @@ const Home: React.FC<any> = ({
   );
 };
 
-Home.propTypes = {
-  recipes: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      title: PropTypes.string.isRequired,
-      reference: PropTypes.string.isRequired,
-      img_name: PropTypes.string.isRequired,
-      text: PropTypes.string.isRequired,
-      meal_qty: PropTypes.number.isRequired,
-      cooking_time: PropTypes.shape({
-        hours: PropTypes.number,
-        minutes: PropTypes.number,
-      }).isRequired,
-      preparation_time: PropTypes.shape({
-        hours: PropTypes.number,
-        minutes: PropTypes.number,
-      }).isRequired,
-      type_id: PropTypes.number.isRequired,
-      basket: PropTypes.bool.isRequired,
-    }),
-  ).isRequired,
-  recipesSearchList: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      title: PropTypes.string.isRequired,
-      reference: PropTypes.string.isRequired,
-      img_name: PropTypes.string.isRequired,
-      text: PropTypes.string.isRequired,
-      meal_qty: PropTypes.number.isRequired,
-      cooking_time: PropTypes.shape({
-        hours: PropTypes.number,
-        minutes: PropTypes.number,
-      }).isRequired,
-      preparation_time: PropTypes.shape({
-        hours: PropTypes.number,
-        minutes: PropTypes.number,
-      }).isRequired,
-      type_id: PropTypes.number.isRequired,
-      basket: PropTypes.bool.isRequired,
-    }),
-  ).isRequired,
-  handleSetSearchList: PropTypes.func,
-};
-
-Home.defaultProps = {
-  recipes: [],
-  recipesSearchList: [],
-};
 
 export default React.memo(Home);

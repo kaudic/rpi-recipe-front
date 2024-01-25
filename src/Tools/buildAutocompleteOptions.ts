@@ -5,7 +5,7 @@
  * @returns {array<autocompleteOptions>} an array containing the options
  */
 
-const buildAutocompleteOptions = (itemsArray, options) => {
+const buildAutocompleteOptions = (itemsArray: any, options?: any) => {
   const defaultOptions = { label: "name", id: "id", ...options };
 
   const autocompleteOptionsArray = [];

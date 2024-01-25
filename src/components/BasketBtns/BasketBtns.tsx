@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import "./basketBtns.scss";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import Button from "@mui/material/Button";
@@ -38,16 +37,6 @@ const BasketBtns: React.FC<any> = ({
       </ButtonGroup>
     </div>
   );
-};
-
-BasketBtns.propTypes = {
-  handleToggleIngredientsClick: PropTypes.func.isRequired,
-  showIngredients: PropTypes.bool.isRequired,
-  handleDeleteBasketClick: PropTypes.func,
-};
-
-BasketBtns.defaultProps = {
-  showIngredients: false,
 };
 
 export default React.memo(BasketBtns);

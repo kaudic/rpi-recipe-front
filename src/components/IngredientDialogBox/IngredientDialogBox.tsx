@@ -1,7 +1,4 @@
-import React, { useState } from "react";
-import AddCircleIcon from "@mui/icons-material/AddCircle";
-import Tooltip from "@mui/material/Tooltip";
-import { IconButton } from "@mui/material";
+import React from "react";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Dialog from "@mui/material/Dialog";
@@ -107,18 +104,6 @@ const IngredientDialogBox: React.FC<any> = ({
       </DialogActions>
     </Dialog>
   );
-};
-
-IngredientDialogBox.propTypes = {
-  modify: PropTypes.bool,
-};
-
-IngredientDialogBox.defaultProps = {
-  modify: false,
-  showQty: true,
-  title: "Ajouter un ingrédient à la recette",
-  subtitle: "Choisir un ingrédient dans la liste puis indiquer la quantité",
-  ingredientAutocomplete: true,
 };
 
 export default React.memo(IngredientDialogBox);

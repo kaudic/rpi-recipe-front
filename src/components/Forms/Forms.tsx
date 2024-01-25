@@ -5,14 +5,13 @@ import RecipeForm from "../RecipeForm/RecipeForm";
 import "./forms.scss";
 import FormsIngredients from "../FormsIngredients/FormsIngredients";
 import FormsUnits from "../FormsUnits/FormsUnits";
-import PropTypes from "prop-types";
 
 const Forms: React.FC<any> = ({ units, types, ingredients }) => {
   // State for the value - it represents the selected entry of the side menu
   const [tabsValue, setTabsValue] = useState(0);
 
   // On click on a tab the value will be updated
-  const handleTabsChange = (event, value) => {
+  const handleTabsChange = (event: any, value: any) => {
     setTabsValue(value);
   };
 
@@ -36,29 +35,6 @@ const Forms: React.FC<any> = ({ units, types, ingredients }) => {
       </div>
     </>
   );
-};
-
-Forms.propTypes = {
-  units: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      short_name: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-    }),
-  ).isRequired,
-  types: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      name: PropTypes.string.isRequired,
-    }),
-  ).isRequired,
-  ingredients: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      name: PropTypes.string.isRequired,
-      main_unit_id: PropTypes.number.isRequired,
-    }),
-  ).isRequired,
 };
 
 export default React.memo(Forms);

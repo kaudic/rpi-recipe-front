@@ -1,12 +1,11 @@
 import React from "react";
-import PropTypes from "prop-types";
 import Page from "../Page/Page";
 import "./recipe.scss";
 import CardIndicators from "../CardIndicators/CardIndicators";
 import Ingredient from "../Ingredient/Ingredient";
 import RecipeBtns from "../RecipeBtns/RecipeBtns";
 import { Link } from "react-router-dom";
-import CarouselArrowCtn from "../../containers/CarouselArrowCtn";
+import CarouselArrowCtn from "../../components/CarouselArrow/CarouselArrowCtn";
 
 const Recipe: React.FC<any> = ({
   recipe,
@@ -74,7 +73,7 @@ const Recipe: React.FC<any> = ({
         <div className="recipe-div">
           <h1 className="recipe-title">Liste des ingrédients</h1>
           <ul className="ingredients">
-            {recipe.ingredients.map((ingredient) => (
+            {recipe.ingredients.map((ingredient: any) => (
               <Ingredient key={ingredient.id} ingredient={ingredient} />
             ))}
           </ul>
@@ -86,7 +85,5 @@ const Recipe: React.FC<any> = ({
     </Page>
   );
 };
-
-Recipe.propTypes = {};
 
 export default React.memo(Recipe);

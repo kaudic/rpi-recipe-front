@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import "./recipeBtns.scss";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import Button from "@mui/material/Button";
@@ -46,7 +45,5 @@ const RecipeBtns: React.FC<any> = ({
     </div>
   );
 };
-
-RecipeBtns.propTypes = {};
 
 export default React.memo(RecipeBtns);

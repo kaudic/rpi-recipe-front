@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
 import Page from "../Page/Page";
 import "./recipeForm.scss";
 import { useDispatch } from "react-redux";
@@ -49,7 +48,7 @@ const RecipeForm: React.FC<any> = ({
   };
 
   // Function to calculate minutes in time preparation and cooking
-  const minutesCalculator = (timeObject) => {
+  const minutesCalculator = (timeObject: any) => {
     let minutes;
     if (timeObject.hours) {
       if (timeObject.minutes) {
@@ -97,25 +96,25 @@ const RecipeForm: React.FC<any> = ({
   const [unitValue, setUnitValue] = useState(null);
 
   // function to handle the change of recipe type
-  const handleSelectTypeChange = (event) => {
+  const handleSelectTypeChange = (event: any) => {
     setTypeId(event.target.value);
   };
 
   // function for dialog box to handle change of unit
-  const handleChangeOfUnit = (event, value) => {
+  const handleChangeOfUnit = (event: any, value: any) => {
     setUnitValue(value);
   };
   // function for dialog box to get the default unit id from chosen ingredient and pass it to the unit autocomplete
-  const handleChangeOfIngredient = (event, value) => {
+  const handleChangeOfIngredient = (event: any, value: any) => {
     const findUnitIndex = units.findIndex(
-      (unit) => parseInt(unit.id) === parseInt(value.unitId),
+      (unit: any) => parseInt(unit.id) === parseInt(value.unitId as string),
     );
     const unitValue = buildAutocompleteOptions([units[findUnitIndex]])[0];
-    setUnitValue(unitValue);
+    setUnitValue(unitValue as any);
     setIngredientValue(value);
 
     // check if ingredient is already in the recipe ingredients, if yes, then refuse the selection
-    ingredients.forEach((ingredient) => {
+    ingredients.forEach((ingredient: any) => {
       if (ingredient.id === value.id) {
         Swal.fire({
           icon: "warning",
@@ -129,13 +128,13 @@ const RecipeForm: React.FC<any> = ({
     });
   };
   // function for dialog box to register in a state the qty of ingredient after each change of qty
-  const handleChangeOfQty = (event) => {
+  const handleChangeOfQty = (event: any) => {
     setQtyValue(event.target.value);
   };
   // get dispatch function from Redux
   const dispatch = useDispatch();
   // function to make an API call to modify the current recipe
-  const handleSubmitClick = (event) => {
+  const handleSubmitClick = (event: any) => {
     event.preventDefault();
 
     // checking ingredients
@@ -171,7 +170,7 @@ const RecipeForm: React.FC<any> = ({
     setModify(false);
   };
   // function to make an API call to create a new recipe
-  const handleCreationClick = (event) => {
+  const handleCreationClick = (event: any) => {
     event.preventDefault();
 
     // checking ingredients
@@ -198,7 +197,7 @@ const RecipeForm: React.FC<any> = ({
     dispatch(actionFetchCreateRecipe(newRecipe, imgData));
   };
   // function to handle the image attachment
-  const handleChangeInputFile = (event) => {
+  const handleChangeInputFile = (event: any) => {
     const imgFile = event.target.files[0];
 
     // Build the multipartFormData for the API and store it in the state
@@ -207,10 +206,10 @@ const RecipeForm: React.FC<any> = ({
       imgName: imgFile.name,
       imgFile,
     };
-    setImgData(imgData);
+    setImgData(imgData as any);
   };
   // function to submit an image file to the API
-  const handleUploadImg = (event) => {
+  const handleUploadImg = (event: any) => {
     // making the API call through redux middleware
     dispatch(actionFetchPutImage(convertObjectToFormData(imgData)));
 
@@ -218,8 +217,8 @@ const RecipeForm: React.FC<any> = ({
     setImgData("");
   };
   // function to handle the change on an ingredient qty
-  const updateIngredientsQtyChange = (ingredientId, newQty) => {
-    ingredients.forEach((ingredient) => {
+  const updateIngredientsQtyChange = (ingredientId: any, newQty: any) => {
+    ingredients.forEach((ingredient: any) => {
       if (parseInt(ingredient.id) === parseInt(ingredientId)) {
         ingredient.qty = newQty;
       }
@@ -227,8 +226,8 @@ const RecipeForm: React.FC<any> = ({
     setIngredients(ingredients);
   };
   // function to handle the change on an ingredient unitId
-  const updateIngredientsUnitChange = (ingredientId, unitId) => {
-    ingredients.forEach((ingredient) => {
+  const updateIngredientsUnitChange = (ingredientId: any, unitId: any) => {
+    ingredients.forEach((ingredient: any) => {
       if (parseInt(ingredient.id) === parseInt(ingredientId)) {
         ingredient.unitId = unitId;
       }
@@ -236,7 +235,7 @@ const RecipeForm: React.FC<any> = ({
     setIngredients(ingredients);
   };
   // function to delete an ingredient
-  const deleteIngredient = (ingredientId) => {
+  const deleteIngredient = (ingredientId: any) => {
     const oldIngredients = [...ingredients];
     const ingredientIndex = oldIngredients.findIndex(
       (ingredient) => parseInt(ingredient.id) === parseInt(ingredientId),
@@ -265,13 +264,13 @@ const RecipeForm: React.FC<any> = ({
   const handleIngredientDialBoxClickValidate = () => {
     setIngregientDialBoxOpen(false);
     const newIngredient = {
-      id: ingredientValue.id,
-      name: ingredientValue.label,
+      id: (ingredientValue as any)?.id,
+      name: (ingredientValue as any)?.label,
       qty: qtyValue,
-      unitId: unitValue.id,
+      unitId: (unitValue as any)?.id,
     };
 
-    if (ingredientValue.id && qtyValue && unitValue.id) {
+    if ((ingredientValue as any)?.id && qtyValue && (unitValue as any)?.id) {
       ingredients.push(newIngredient);
       setIngredients(ingredients);
     }
@@ -302,7 +301,7 @@ const RecipeForm: React.FC<any> = ({
               label="Titre de la recette"
               variant="standard"
               fullWidth
-              {...spreadInputTitle}
+              {...(spreadInputTitle as any)}
             />
           </Box>
           <Box sx={boxStyle}>
@@ -313,7 +312,7 @@ const RecipeForm: React.FC<any> = ({
               label="Référence de la recette"
               variant="standard"
               fullWidth
-              {...spreadInputReference}
+              {...(spreadInputReference as any)}
             />
           </Box>
           <Box sx={boxStyle}>
@@ -324,7 +323,7 @@ const RecipeForm: React.FC<any> = ({
               label="Nombre de repas"
               variant="standard"
               fullWidth
-              {...spreadInputMealQty}
+              {...(spreadInputMealQty as any)}
             />
           </Box>
           <Box sx={boxStyle}>
@@ -335,7 +334,7 @@ const RecipeForm: React.FC<any> = ({
               label="Temps préparation (min)"
               variant="standard"
               fullWidth
-              {...spreadInputPreparationTime}
+              {...(spreadInputPreparationTime as any)}
             />
           </Box>
           <Box sx={boxStyle}>
@@ -346,7 +345,7 @@ const RecipeForm: React.FC<any> = ({
               label="Temps cuisson (min)"
               variant="standard"
               fullWidth
-              {...spreadInputCookingTime}
+              {...(spreadInputCookingTime as any)}
             />
           </Box>
           <Box sx={boxStyle}>
@@ -358,7 +357,7 @@ const RecipeForm: React.FC<any> = ({
               value={typeId}
               onChange={handleSelectTypeChange}
             >
-              {types.map((type) => (
+              {types.map((type: any) => (
                 <MenuItem key={type.id} value={parseInt(type.id)}>
                   {type.name}
                 </MenuItem>
@@ -378,7 +377,7 @@ const RecipeForm: React.FC<any> = ({
             </Button>
 
             {imgData !== "" && (
-              <div className="recipeForm-upload-image">{imgData.imgName}</div>
+              <div className="recipeForm-upload-image">{(imgData as any).imgName}</div>
             )}
           </div>
         </div>
@@ -393,7 +392,7 @@ const RecipeForm: React.FC<any> = ({
             rows={25}
             fullWidth
             color="secondary"
-            {...spreadInputText}
+            {...(spreadInputText as any)}
           />
         </div>
         <div className="recipeForm-div">
